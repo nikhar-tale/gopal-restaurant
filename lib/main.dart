@@ -52,107 +52,159 @@ class _MenuScreenState extends State<MenuScreen> {
   String searchQuery = '';
   final TextEditingController searchController = TextEditingController();
 
-  // Sample menu data - easily customizable
-  final List<MenuItem> menuItems = [
-    // Starters
-    MenuItem(
-      name: 'Paneer Tikka',
-      price: 180,
-      description: 'Marinated cottage cheese grilled to perfection with bell peppers and onions',
-      tags: ['Veg'],
-      category: 'Starters',
-    ),
+// 🍽️ Restaurant Menu Data
+final List<MenuItem> menuItems = [
+  // 🌟 Starters
+  MenuItem(
+    name: 'Paneer Tikka',
+    price: 180,
+    description: 'Marinated cottage cheese grilled with bell peppers and onions',
+    tags: ['Veg', 'Spicy'],
+    category: 'Starters',
+  ),
+  MenuItem(
+    name: 'Hara Bhara Kabab',
+    price: 150,
+    description: 'Spinach and green peas patties with aromatic spices',
+    tags: ['Veg'],
+    category: 'Starters',
+  ),
+  MenuItem(
+    name: 'Chicken 65',
+    price: 220,
+    description: 'Crispy fried chicken bites tossed with curry leaves & spices',
+    tags: ['Non-Veg', 'Spicy'],
+    category: 'Starters',
+  ),
+  MenuItem(
+    name: 'Veg Manchurian',
+    price: 160,
+    description: 'Deep-fried veggie dumplings in tangy Indo-Chinese sauce',
+    tags: ['Veg'],
+    category: 'Starters',
+  ),
 
-    MenuItem(
-      name: 'Samosa Chat',
-      price: 120,
-      description: 'Crispy samosas topped with yogurt, chutneys, and fresh herbs',
-      tags: ['Veg'],
-      category: 'Starters',
-    ),
-    
-    // Main Course
+  // 🍛 Main Course
+  MenuItem(
+    name: 'Butter Chicken',
+    price: 320,
+    description: 'Tender chicken in rich, buttery tomato gravy',
+    tags: ['Non-Veg'],
+    category: 'Main Course',
+  ),
+  MenuItem(
+    name: 'Paneer Butter Masala',
+    price: 280,
+    description: 'Cottage cheese in creamy, mildly spiced tomato gravy',
+    tags: ['Veg'],
+    category: 'Main Course',
+  ),
+  MenuItem(
+    name: 'Mutton Rogan Josh',
+    price: 380,
+    description: 'Slow-cooked mutton curry with Kashmiri spices',
+    tags: ['Non-Veg'],
+    category: 'Main Course',
+  ),
+  MenuItem(
+    name: 'Chole Bhature',
+    price: 200,
+    description: 'Spiced chickpeas served with fluffy fried bread',
+    tags: ['Veg'],
+    category: 'Main Course',
+  ),
 
-    MenuItem(
-      name: 'Paneer Makhani',
-      price: 280,
-      description: 'Cottage cheese cubes in creamy tomato and cashew gravy',
-      tags: ['Veg'],
-      category: 'Main Course',
-    ),
+  // 🍚 Rice & Bread
+  MenuItem(
+    name: 'Hyderabadi Biryani',
+    price: 300,
+    description: 'Fragrant basmati rice layered with spiced chicken and herbs',
+    tags: ['Non-Veg'],
+    category: 'Rice & Bread',
+  ),
+  MenuItem(
+    name: 'Veg Pulao',
+    price: 180,
+    description: 'Aromatic rice cooked with seasonal vegetables',
+    tags: ['Veg'],
+    category: 'Rice & Bread',
+  ),
+  MenuItem(
+    name: 'Butter Naan',
+    price: 60,
+    description: 'Soft, fluffy naan brushed with butter',
+    tags: ['Veg'],
+    category: 'Rice & Bread',
+  ),
+  MenuItem(
+    name: 'Tandoori Roti',
+    price: 40,
+    description: 'Whole wheat flatbread baked in clay oven',
+    tags: ['Veg'],
+    category: 'Rice & Bread',
+  ),
 
-    MenuItem(
-      name: 'Dal Tadka',
-      price: 160,
-      description: 'Yellow lentils tempered with cumin, garlic, and fresh herbs',
-      tags: ['Veg'],
-      category: 'Main Course',
-    ),
-    
-    // Rice & Bread
+  // 🍹 Beverages
+  MenuItem(
+    name: 'Mango Lassi',
+    price: 90,
+    description: 'Refreshing yogurt drink blended with mango pulp',
+    tags: ['Veg'],
+    category: 'Beverages',
+  ),
+  MenuItem(
+    name: 'Masala Chai',
+    price: 40,
+    description: 'Traditional tea brewed with milk and aromatic spices',
+    tags: ['Veg'],
+    category: 'Beverages',
+  ),
+  MenuItem(
+    name: 'Cold Coffee',
+    price: 120,
+    description: 'Chilled coffee blended with milk & ice cream',
+    tags: ['Veg'],
+    category: 'Beverages',
+  ),
+  MenuItem(
+    name: 'Virgin Mojito',
+    price: 150,
+    description: 'Lime, mint, and soda – the perfect cooler',
+    tags: ['Veg'],
+    category: 'Beverages',
+  ),
 
+  // 🍨 Desserts
+  MenuItem(
+    name: 'Gulab Jamun',
+    price: 90,
+    description: 'Soft dumplings soaked in sugar syrup',
+    tags: ['Veg'],
+    category: 'Desserts',
+  ),
+  MenuItem(
+    name: 'Rasmalai',
+    price: 110,
+    description: 'Cottage cheese patties soaked in sweetened milk',
+    tags: ['Veg'],
+    category: 'Desserts',
+  ),
+  MenuItem(
+    name: 'Brownie with Ice Cream',
+    price: 150,
+    description: 'Warm chocolate brownie served with vanilla ice cream',
+    tags: ['Veg'],
+    category: 'Desserts',
+  ),
+  MenuItem(
+    name: 'Matka Kulfi',
+    price: 100,
+    description: 'Traditional Indian kulfi served in a clay pot',
+    tags: ['Veg'],
+    category: 'Desserts',
+  ),
+];
 
-    MenuItem(
-      name: 'Vegetable Biryani',
-      price: 220,
-      description: 'Aromatic rice with mixed vegetables and traditional spices',
-      tags: ['Veg'],
-      category: 'Rice & Bread',
-    ),
-    MenuItem(
-      name: 'Butter Naan',
-      price: 60,
-      description: 'Soft, fluffy bread brushed with butter, baked in tandoor',
-      tags: ['Veg'],
-      category: 'Rice & Bread',
-    ),
-    MenuItem(
-      name: 'Garlic Naan',
-      price: 80,
-      description: 'Naan bread topped with fresh garlic and cilantro',
-      tags: ['Veg'],
-      category: 'Rice & Bread',
-    ),
-    
-    // Beverages
-    MenuItem(
-      name: 'Mango Lassi',
-      price: 80,
-      description: 'Creamy yogurt drink blended with fresh mango pulp',
-      tags: ['Veg'],
-      category: 'Beverages',
-    ),
-    MenuItem(
-      name: 'Masala Chai',
-      price: 40,
-      description: 'Traditional Indian tea brewed with aromatic spices',
-      tags: ['Veg'],
-      category: 'Beverages',
-    ),
-    MenuItem(
-      name: 'Fresh Lime Soda',
-      price: 60,
-      description: 'Refreshing lime juice with soda and a hint of black salt',
-      tags: ['Veg'],
-      category: 'Beverages',
-    ),
-    
-    // Desserts
-    MenuItem(
-      name: 'Gulab Jamun',
-      price: 80,
-      description: 'Soft milk dumplings soaked in cardamom-flavored sugar syrup',
-      tags: ['Veg'],
-      category: 'Desserts',
-    ),
-    MenuItem(
-      name: 'Kulfi',
-      price: 70,
-      description: 'Traditional Indian ice cream with cardamom and pistachios',
-      tags: ['Veg'],
-      category: 'Desserts',
-    ),
-  ];
 
   List<String> get categories {
     final cats = menuItems.map((item) => item.category).toSet().toList();
@@ -162,20 +214,22 @@ class _MenuScreenState extends State<MenuScreen> {
 
   List<MenuItem> get filteredItems {
     List<MenuItem> filtered = menuItems;
-    
+
     // Filter by category
     if (selectedCategory != 'All') {
-      filtered = filtered.where((item) => item.category == selectedCategory).toList();
+      filtered = filtered
+          .where((item) => item.category == selectedCategory)
+          .toList();
     }
-    
+
     // Filter by search query
     if (searchQuery.isNotEmpty) {
       filtered = filtered.where((item) {
         return item.name.toLowerCase().contains(searchQuery.toLowerCase()) ||
-               item.description.toLowerCase().contains(searchQuery.toLowerCase());
+            item.description.toLowerCase().contains(searchQuery.toLowerCase());
       }).toList();
     }
-    
+
     return filtered;
   }
 
@@ -184,54 +238,23 @@ class _MenuScreenState extends State<MenuScreen> {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // App Bar with restaurant info
           SliverAppBar(
             expandedHeight: 200.0,
             floating: false,
             pinned: true,
             flexibleSpace: FlexibleSpaceBar(
-              title: const Text(
-                'Gopal Restaurant',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  shadows: [Shadow(blurRadius: 2, color: Colors.black26)],
-                ),
-              ),
-              background: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      Color(0xFFFF6B6B),
-                      Color(0xFFEE5A24),
-                    ],
-                  ),
-                ),
-                child: const Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.restaurant,
-                        size: 50,
-                        color: Colors.white70,
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Authentic Indian Cuisine',
-                        style: TextStyle(
-                          color: Colors.white70,
-                          fontSize: 16,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+              background: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Image.asset(
+                    'assets/images/restaurant_banner.jpeg', // replace with your image path
+                    fit: BoxFit.fill,
+                  )
+                ],
               ),
             ),
           ),
-          
+
           // Search Bar
           SliverToBoxAdapter(
             child: Container(
@@ -268,7 +291,7 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
             ),
           ),
-          
+
           // Category Tabs
           SliverToBoxAdapter(
             child: Container(
@@ -281,7 +304,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 itemBuilder: (context, index) {
                   final category = categories[index];
                   final isSelected = category == selectedCategory;
-                  
+
                   return Container(
                     margin: const EdgeInsets.only(right: 12),
                     child: FilterChip(
@@ -296,7 +319,9 @@ class _MenuScreenState extends State<MenuScreen> {
                       selectedColor: Theme.of(context).primaryColor,
                       labelStyle: TextStyle(
                         color: isSelected ? Colors.white : Colors.black87,
-                        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                        fontWeight: isSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
                       ),
                     ),
                   );
@@ -304,18 +329,15 @@ class _MenuScreenState extends State<MenuScreen> {
               ),
             ),
           ),
-          
+
           // Menu Items
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) {
-                final item = filteredItems[index];
-                return MenuItemCard(item: item);
-              },
-              childCount: filteredItems.length,
-            ),
+            delegate: SliverChildBuilderDelegate((context, index) {
+              final item = filteredItems[index];
+              return MenuItemCard(item: item);
+            }, childCount: filteredItems.length),
           ),
-          
+
           // Footer
           SliverToBoxAdapter(
             child: Container(
@@ -383,9 +405,9 @@ class MenuItemCard extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             const SizedBox(height: 8),
-            
+
             // Description
             Text(
               item.description,
@@ -395,16 +417,16 @@ class MenuItemCard extends StatelessWidget {
                 height: 1.4,
               ),
             ),
-            
+
             const SizedBox(height: 12),
-            
+
             // Tags
             Wrap(
               spacing: 8,
               children: item.tags.map((tag) {
                 Color tagColor;
                 Color textColor;
-                
+
                 switch (tag.toLowerCase()) {
                   case 'veg':
                     tagColor = Colors.green[100]!;
@@ -422,9 +444,12 @@ class MenuItemCard extends StatelessWidget {
                     tagColor = Colors.blue[100]!;
                     textColor = Colors.blue[800]!;
                 }
-                
+
                 return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 4,
+                  ),
                   decoration: BoxDecoration(
                     color: tagColor,
                     borderRadius: BorderRadius.circular(12),
