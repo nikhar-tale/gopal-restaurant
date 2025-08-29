@@ -1,4 +1,6 @@
+# =========================
 # Miscellaneous
+# =========================
 *.class
 *.log
 *.pyc
@@ -12,7 +14,9 @@
 .swiftpm/
 migrate_working_dir/
 
-# IntelliJ related
+# =========================
+# IntelliJ / Android Studio
+# =========================
 *.iml
 *.ipr
 *.iws
@@ -23,7 +27,9 @@ migrate_working_dir/
 # is commented out by default.
 #.vscode/
 
-# Flutter/Dart/Pub related
+# =========================
+# Flutter / Dart / Pub
+# =========================
 **/doc/api/
 **/ios/Flutter/.last_build_id
 .dart_tool/
@@ -39,7 +45,32 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
+# =========================
+# Android
+# =========================
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# =========================
+# iOS
+# =========================
+/ios/Flutter/Flutter.framework
+/ios/Flutter/Flutter.podspec
+/ios/Flutter/Generated.xcconfig
+/ios/Flutter/ephemeral/
+/ios/.symlinks/
+/ios/Pods/
+/ios/Podfile.lock
+/ios/Runner/GeneratedPluginRegistrant.*
+
+# =========================
+# Firebase Hosting
+# =========================
+.firebase/
+build/web/
+
+# Keep Firebase config files (needed for deploys)
+# Do NOT ignore these:
+#   firebase.json
+#   .firebaserc
